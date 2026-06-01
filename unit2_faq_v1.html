@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STAT C1000 · Unit 2 Student FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1b2d5e;--navy-deep:#0f1c3f;--navy-mid:#243470;
+    --gold:#d4960c;--gold-light:#f0b429;--gold-pale:#fef3d8;
+    --coral:#c95a3e;--coral-pale:#fdf0ec;
+    --teal:#1a7a6e;--teal-pale:#e8f5f3;
+    --purple:#534AB7;--purple-pale:#EEEDFE;
+    --cream:#fdfaf4;--parchment:#f5ede0;
+    --border:#e8d9c5;--text:#221c16;--muted:#6b5d52;--white:#ffffff;
+    --radius:14px;--radius-sm:8px;
+    --shadow-card:0 4px 24px rgba(27,45,94,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);font-size:16px;line-height:1.7;}
+  .site-header{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:0;position:relative;overflow:hidden;}
+  .header-deco{position:absolute;top:0;right:0;bottom:0;width:45%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Ccircle cx='350' cy='40' r='180' fill='rgba(244,180,42,0.06)'/%3E%3Ccircle cx='250' cy='240' r='120' fill='rgba(244,180,42,0.04)'/%3E%3C/svg%3E") no-repeat center;background-size:cover;pointer-events:none;}
+  .header-inner{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:2.5rem 2rem 2rem;}
+  .badge-sac{display:inline-flex;align-items:center;gap:8px;background:rgba(212,150,12,0.18);border:1px solid rgba(240,180,41,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--gold-light);text-transform:uppercase;margin-bottom:1rem;}
+  .badge-sac::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-light);display:inline-block;}
+  .header-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.5rem;}
+  .header-title em{font-style:italic;color:var(--gold-light);}
+  .header-sub{font-size:15px;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:1.5rem;}
+  .hope-strip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-sm);padding:0.9rem 1.2rem;display:flex;align-items:flex-start;gap:12px;}
+  .hope-icon{font-size:20px;line-height:1;flex-shrink:0;margin-top:2px;}
+  .hope-text{font-size:14px;color:rgba(255,255,255,0.85);font-weight:400;line-height:1.6;}
+  .hope-text strong{color:var(--gold-light);font-weight:600;}
+  .stats-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:0.75rem 2rem;}
+  .stats-bar-inner{max-width:960px;margin:0 auto;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}
+  .stat-pill{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;}
+  .stat-pill strong{color:var(--navy);font-weight:600;}
+  .controls{max-width:960px;margin:0 auto;padding:1.5rem 2rem 0.5rem;}
+  .search-wrap{position:relative;margin-bottom:1.25rem;}
+  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);}
+  #searchInput{width:100%;padding:12px 16px 12px 44px;border:1.5px solid var(--border);border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;background:var(--white);color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+  #searchInput:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(27,45,94,0.1);}
+  #searchInput::placeholder{color:#b0a498;}
+  .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0.5rem;}
+  .filter-btn{padding:7px 16px;border-radius:100px;border:1.5px solid var(--border);background:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:7px;}
+  .filter-btn:hover{border-color:var(--navy);color:var(--navy);}
+  .filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
+  .filter-btn .dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+  main{max-width:960px;margin:0 auto;padding:1rem 2rem 3rem;}
+  .section-header{display:flex;align-items:center;gap:14px;margin:2rem 0 1rem;padding-bottom:0.75rem;border-bottom:2px solid var(--border);}
+  .section-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .section-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--navy);}
+  .section-count{margin-left:auto;font-size:12px;color:var(--muted);background:var(--parchment);border:1px solid var(--border);border-radius:100px;padding:3px 10px;font-weight:500;}
+  .faq-list{display:flex;flex-direction:column;gap:10px;}
+  .faq-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s;}
+  .faq-card:hover{border-color:#c9b9a0;box-shadow:var(--shadow-card);}
+  .faq-card.open{border-color:var(--navy);}
+  .faq-trigger{display:flex;align-items:flex-start;gap:14px;padding:1.1rem 1.3rem;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--text);line-height:1.5;}
+  .q-icon{width:28px;height:28px;border-radius:50%;background:var(--parchment);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gold);flex-shrink:0;margin-top:1px;border:1.5px solid var(--border);font-family:'Playfair Display',serif;}
+  .faq-card.open .q-icon{background:var(--navy);border-color:var(--navy);color:var(--gold-light);}
+  .faq-q{flex:1;}
+  .chevron{width:20px;height:20px;flex-shrink:0;margin-top:3px;transition:transform 0.25s;color:var(--muted);}
+  .faq-card.open .chevron{transform:rotate(180deg);color:var(--navy);}
+  .tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;}
+  .tag{font-size:11px;font-weight:600;letter-spacing:0.04em;padding:2px 8px;border-radius:100px;border:1px solid;}
+  .tag.s-tag{background:#eef2ff;color:#3b55b0;border-color:#c7d0f5;}
+  .faq-body{overflow:hidden;max-height:0;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);}
+  .faq-body-inner{padding:0 1.3rem 1.3rem 3.8rem;border-top:1px solid var(--border);}
+  .answer-head{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:0.9rem 0 0.4rem;}
+  .answer-text{font-size:14.5px;line-height:1.75;color:#3a2e28;}
+  .answer-text p{margin-bottom:0.6rem;}
+  .answer-text p:last-child{margin-bottom:0;}
+  .answer-text strong{color:var(--navy);font-weight:600;}
+  .answer-text em{color:var(--coral);font-style:normal;font-weight:600;}
+  .tip-box{background:var(--gold-pale);border-left:3px solid var(--gold);padding:0.7rem 0.9rem;margin-top:0.75rem;font-size:13.5px;line-height:1.65;color:#3d2e10;}
+  .tip-box b{color:#7a4e05;}
+  .rule-box{background:var(--coral-pale);border-left:3px solid var(--coral);padding:0.7rem 0.9rem;margin-top:0.75rem;font-size:13.5px;line-height:1.65;color:#4a1f13;font-weight:500;}
+  .rule-box b{color:var(--coral);}
+  .info-box{background:var(--teal-pale);border-left:3px solid var(--teal);padding:0.7rem 0.9rem;margin-top:0.75rem;font-size:13.5px;line-height:1.65;color:#0b3d37;}
+  .info-box b{color:var(--teal);}
+  .mistake-box{background:var(--purple-pale);border-left:3px solid var(--purple);padding:0.7rem 0.9rem;margin-top:0.75rem;font-size:13.5px;line-height:1.65;color:#26215C;}
+  .mistake-box b{color:var(--purple);}
+  .decision-table{width:100%;border-collapse:collapse;margin-top:0.75rem;font-size:13px;}
+  .decision-table caption{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 6px;}
+  .decision-table th{background:var(--navy);color:rgba(255,255,255,0.9);padding:8px 12px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.04em;}
+  .decision-table th:first-child{border-radius:var(--radius-sm) 0 0 0;}
+  .decision-table th:last-child{border-radius:0 var(--radius-sm) 0 0;}
+  .decision-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+  .decision-table tr:last-child td{border-bottom:none;}
+  .decision-table tr:nth-child(even) td{background:var(--parchment);}
+  .test-badge{display:inline-block;background:var(--navy);color:var(--gold-light);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;letter-spacing:0.03em;}
+  /* DECISION TREE */
+  #decisionTree{background:var(--white);border:2px solid var(--navy);border-radius:var(--radius);overflow:hidden;margin-bottom:0.5rem;}
+  .tree-header{background:var(--navy);padding:1rem 1.3rem;}
+  .tree-header-text h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+  .tree-header-text p{font-size:13px;color:rgba(255,255,255,0.65);margin-top:2px;}
+  .tree-body{padding:1.3rem;}
+  .tree-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;min-height:26px;}
+  .crumb{font-size:11px;background:var(--parchment);border:1px solid var(--border);border-radius:100px;padding:3px 10px;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:5px;}
+  .crumb::after{content:'›';color:#b0a498;margin-left:5px;}
+  .crumb:last-child::after{display:none;}
+  .tree-question{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:0.35rem;}
+  .tree-context{font-size:13.5px;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+  .tree-options{display:flex;flex-direction:column;gap:8px;}
+  .tree-option{display:flex;flex-direction:column;padding:0.9rem 1.1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.18s;background:var(--cream);text-align:left;font-family:'DM Sans',sans-serif;}
+  .tree-option:hover{border-color:var(--navy);background:var(--white);box-shadow:0 2px 12px rgba(27,45,94,0.08);}
+  .tree-option-label{font-size:15px;font-weight:600;color:var(--navy);}
+  .tree-option-sub{font-size:13px;color:var(--muted);margin-top:2px;}
+  .tree-result{padding:1.1rem 1.3rem;background:linear-gradient(135deg,#0f1c3f 0%,#1b2d5e 100%);border-radius:var(--radius-sm);margin-top:0.5rem;}
+  .result-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.4rem;}
+  .result-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:0.3rem;}
+  .result-symbol{font-style:italic;font-size:0.95rem;color:rgba(255,255,255,0.7);margin-bottom:0.4rem;font-family:'Playfair Display',serif;}
+  .result-hyp{font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:0.8rem;line-height:1.6;}
+  .result-actions{display:flex;gap:8px;flex-wrap:wrap;}
+  .result-btn{padding:8px 16px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.18s;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+  .result-btn.primary{background:var(--gold);color:#1a0f00;}
+  .result-btn.primary:hover{background:var(--gold-light);}
+  .result-btn.secondary{background:rgba(255,255,255,0.12);color:var(--white);border:1px solid rgba(255,255,255,0.25);}
+  .result-btn.secondary:hover{background:rgba(255,255,255,0.2);}
+  .tree-restart{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+  .restart-btn{background:none;border:1.5px solid var(--border);border-radius:100px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.18s;font-weight:500;}
+  .restart-btn:hover{border-color:var(--navy);color:var(--navy);}
+  .tree-step-indicator{font-size:12px;color:var(--muted);margin-left:auto;}
+  /* APPS */
+  .apps-section{background:var(--white);border:2px solid var(--teal);border-radius:var(--radius);overflow:hidden;margin-bottom:0.5rem;}
+  .apps-header{background:linear-gradient(135deg,var(--teal) 0%,#0f6355 100%);padding:1rem 1.3rem;}
+  .apps-header h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+  .apps-header p{font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;}
+  .apps-body{padding:1rem 1.3rem 1.3rem;}
+  .apps-category-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:1rem 0 0.5rem;border-left:3px solid var(--teal);padding-left:8px;}
+  .apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+  .app-card{border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:0.8rem;background:var(--cream);transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;text-decoration:none;display:flex;flex-direction:column;gap:4px;}
+  .app-card:hover{border-color:var(--teal);box-shadow:0 3px 14px rgba(26,122,110,0.12);transform:translateY(-1px);}
+  .app-cat-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:100px;background:var(--teal-pale);color:var(--teal);border:1px solid #b3ddd7;width:fit-content;}
+  .app-name{font-weight:600;font-size:13px;color:var(--navy);line-height:1.3;}
+  .app-desc{font-size:11.5px;color:var(--muted);line-height:1.45;}
+  .app-launch{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--teal);margin-top:4px;letter-spacing:0.02em;}
+  .app-launch::after{content:'→';}
+  .try-app-btn{display:inline-flex;align-items:center;gap:6px;background:var(--teal-pale);border:1.5px solid #b3ddd7;border-radius:var(--radius-sm);padding:6px 12px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--teal);text-decoration:none;transition:all 0.18s;margin-top:0.75rem;}
+  .try-app-btn:hover{background:var(--teal);color:var(--white);border-color:var(--teal);}
+  .try-app-btn::before{content:'🚀';font-size:13px;}
+  /* ART OF STAT */
+  .artofstat-section{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:2.5rem;}
+  .artofstat-header{background:#1a7a6e;padding:1rem 1.3rem;}
+  .artofstat-header h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);}
+  .artofstat-header p{font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;}
+  .artofstat-intro{padding:1rem 1.3rem 0.5rem;font-size:14px;color:var(--muted);line-height:1.6;}
+  .artofstat-intro a{color:var(--teal);font-weight:600;text-decoration:none;}
+  .artofstat-intro a:hover{text-decoration:underline;}
+  .artofstat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;padding:1rem 1.3rem 1.3rem;}
+  .aos-card{border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:0.9rem;background:var(--cream);transition:border-color 0.18s,box-shadow 0.18s;}
+  .aos-card:hover{border-color:var(--teal);box-shadow:0 2px 12px rgba(26,122,110,0.08);}
+  .aos-test-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-bottom:6px;}
+  .aos-test-badge.prob{background:var(--gold-pale);color:#7a4e05;border:1px solid #f0b429;}
+  .aos-test-badge.binom{background:var(--teal-pale);color:var(--teal);border:1px solid #b3ddd7;}
+  .aos-test-badge.norm{background:var(--purple-pale);color:var(--purple);border:1px solid #c0bce8;}
+  .aos-test-badge.clt{background:var(--coral-pale);color:var(--coral);border:1px solid #e8b09c;}
+  .aos-name{font-weight:600;font-size:14px;color:var(--navy);margin-bottom:4px;line-height:1.3;}
+  .aos-where{font-size:12px;color:var(--muted);margin-bottom:6px;line-height:1.4;}
+  .aos-note{font-size:11.5px;color:var(--coral);font-weight:600;margin-bottom:8px;background:var(--coral-pale);padding:3px 7px;border-radius:4px;display:inline-block;}
+  .aos-video-btn{display:inline-flex;align-items:center;gap:5px;background:var(--teal);color:var(--white);border:none;border-radius:100px;padding:5px 12px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:background 0.18s;margin-top:4px;margin-right:4px;}
+  .aos-video-btn:hover{background:#0f6e56;}
+  .aos-video-icon{width:14px;height:14px;flex-shrink:0;}
+  .faq-item.hidden{display:none;}
+  .section-group.hidden{display:none;}
+  #noResults{text-align:center;padding:3rem 1rem;display:none;}
+  #noResults p{font-size:15px;color:var(--muted);}
+  #noResults strong{color:var(--navy);}
+  .math{font-family:'Playfair Display',serif;font-style:italic;font-size:1em;color:var(--navy);}
+  footer{background:var(--navy-deep);padding:1.5rem 2rem;text-align:center;}
+  .footer-inner{max-width:960px;margin:0 auto;}
+  footer p{font-size:13px;color:rgba(255,255,255,0.45);}
+  footer strong{color:rgba(255,255,255,0.75);font-weight:500;}
+  @media(max-width:600px){
+    .header-inner,main,.controls{padding-left:1rem;padding-right:1rem;}
+    .stats-bar-inner{gap:1rem;}
+    .faq-body-inner{padding-left:1rem;}
+    .artofstat-grid,.apps-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-deco"></div>
+  <div class="header-inner">
+    <div class="badge-sac">SAC Hope Academy · STAT C1000</div>
+    <h1 class="header-title">Unit 2 <em>Student FAQ</em></h1>
+    <p class="header-sub">Probability · Distributions · Normal · Central Limit Theorem</p>
+    <div class="hope-strip">
+      <div class="hope-icon">✦</div>
+      <div class="hope-text"><strong>These questions came from your classmates.</strong> The CLT confusion you're feeling right now? Almost every student in every group asked the exact same question. That is not a sign you're behind — it is a sign you are paying close attention to the hardest concept in the unit. You belong here.</div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-pill">📋 <strong>25</strong> frequently asked questions</div>
+    <div class="stat-pill">🚀 <strong>7</strong> interactive practice apps</div>
+    <div class="stat-pill">🗺️ Interactive <strong>distribution selector</strong></div>
+    <div class="stat-pill">🏅 Covers <strong>S8 – S12</strong></div>
+    <div class="stat-pill">🤝 Built from <strong>real student questions</strong></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="text" id="searchInput" placeholder="Search questions… (e.g., CLT, binomial, expected value, standard error, conditional)">
+  </div>
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterCat(this,'all')"><span class="dot" style="background:#1b2d5e"></span>All Topics</button>
+    <button class="filter-btn" onclick="filterCat(this,'prob')"><span class="dot" style="background:#d4960c"></span>Basic Probability (S8)</button>
+    <button class="filter-btn" onclick="filterCat(this,'dist')"><span class="dot" style="background:#1a7a6e"></span>Expected Value &amp; Binomial (S9–S10)</button>
+    <button class="filter-btn" onclick="filterCat(this,'normal')"><span class="dot" style="background:#534AB7"></span>Normal Distribution (S11)</button>
+    <button class="filter-btn" onclick="filterCat(this,'clt')"><span class="dot" style="background:#c95a3e"></span>Central Limit Theorem (S12)</button>
+  </div>
+</div>
+
+<main id="mainContent">
+
+<!-- ─── DECISION TREE ─── -->
+<div id="decisionTree">
+  <div class="tree-header">
+    <div class="tree-header-text">
+      <h3>🗺️ Which distribution model should I use? — Interactive selector</h3>
+      <p>Answer 2–3 quick questions and land on the right procedure every time.</p>
+    </div>
+  </div>
+  <div class="tree-body">
+    <div class="tree-breadcrumb" id="breadcrumb" role="navigation" aria-label="Decision path"></div>
+    <div id="treeContent"></div>
+  </div>
+</div>
+
+<!-- ─── INTERACTIVE APPS ─── -->
+<div class="apps-section">
+  <div class="apps-header">
+    <h3>🚀 Interactive Practice Apps — Unit 2</h3>
+    <p>Built for STAT C1000 · Click any card to launch in a new tab</p>
+  </div>
+  <div class="apps-body">
+
+    <p class="apps-category-label">🎲 Probability &amp; Expected Value</p>
+    <div class="apps-grid">
+      <a class="app-card" href="https://statisticalintuitionevidence.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">S8 · Concept</span>
+        <span class="app-name">Statistical Intuition &amp; Evidence</span>
+        <span class="app-desc">Connect probability intuition to evidence-based reasoning — builds the foundational thinking behind when and why events are unusual.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+      <a class="app-card" href="https://expectedvalueexplorer.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">S9 · Visualization</span>
+        <span class="app-name">Expected Value Explorer</span>
+        <span class="app-desc">Simulate games of chance and insurance models — manipulate probabilities and payouts to see the long-run average shift in real time.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+    </div>
+
+    <p class="apps-category-label">🔢 Binomial &amp; Normal Distributions</p>
+    <div class="apps-grid">
+      <a class="app-card" href="https://binomialexplorer.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">S10 · Visualization</span>
+        <span class="app-name">Binomial Explorer</span>
+        <span class="app-desc">Manipulate n and p to watch the binomial distribution shift shape — builds intuition for unusual values and the normal approximation.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+      <a class="app-card" href="https://zscoreexplorer.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">S11 · Visualization</span>
+        <span class="app-name">Z-Score Explorer</span>
+        <span class="app-desc">Visualize how z-scores map to areas under the normal curve — master tail direction and "subtract from 1" logic visually before using Art of Stat.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+    </div>
+
+    <p class="apps-category-label">📊 Sampling Distributions &amp; CLT</p>
+    <div class="apps-grid">
+      <a class="app-card" href="https://exploringconfidenceintervals.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">S12 · Visualization</span>
+        <span class="app-name">Sampling Distribution Explorer</span>
+        <span class="app-desc">Simulate repeated sampling and watch the distribution of sample means get narrower as n increases — the core CLT intuition, made visible.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+      <a class="app-card" href="https://sacstatthink.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">Conceptual</span>
+        <span class="app-name">SAC StatThink</span>
+        <span class="app-desc">41 thought-provoking prompts organized by SLO — includes S8–S12 prompts. Reveal expert responses after jotting your own thinking.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+    </div>
+
+    <p class="apps-category-label">📝 Review</p>
+    <div class="apps-grid">
+      <a class="app-card" href="https://sacstatc1000finalconceptreview.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">Review</span>
+        <span class="app-name">Final Exam Concept Practice</span>
+        <span class="app-desc">19 concept-level problems spanning the full course — Unit 2 probability and CLT concepts appear throughout.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+      <a class="app-card" href="https://sacstatc1000finalskillsreview.netlify.app/" target="_blank" rel="noopener">
+        <span class="app-cat-badge">Review</span>
+        <span class="app-name">Final Exam Skills Practice</span>
+        <span class="app-desc">71 comprehensive problems — includes probability calculations, binomial, normal, and CLT problems from Unit 2.</span>
+        <span class="app-launch">Launch App</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ S8 ═══════════════════════════════ -->
+<section class="section-group" data-cat="prob">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef3d8;">🎲</div>
+    <h2 class="section-title">Basic Probability</h2>
+    <span class="section-count">S8 · 4 questions</span>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item faq-card" data-cat="prob" data-keywords="add multiply probability compound or and when which rule addition multiplication">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">When do I add probabilities and when do I multiply them?<div class="tag-row"><span class="tag s-tag">S8</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>The keyword in the problem tells you which rule to use:</p>
+          <p><strong>"OR" → Addition Rule.</strong> P(A or B) = P(A) + P(B) − P(A and B). You subtract the overlap to avoid double-counting. If A and B are mutually exclusive (can't happen at the same time), the overlap is zero: P(A or B) = P(A) + P(B).</p>
+          <p><strong>"AND" → Multiplication Rule.</strong> P(A and B) = P(A) × P(B|A). If A and B are independent, P(B|A) = P(B), so it simplifies to P(A) × P(B).</p>
+        </div>
+        <div class="tip-box"><b>🧠 Memory anchor:</b> <strong>OR = more ways to succeed → add.</strong> <strong>AND = both must happen → multiply.</strong> "And" is more restrictive — the probability shrinks when both events are required simultaneously.</div>
+        <div class="mistake-box"><b>⚠️ Common mistake:</b> Forgetting to subtract the overlap in "or" problems when events are NOT mutually exclusive. If a student can be both left-handed AND a Biology major, counting them under "left-handed" AND again under "Biology major" double-counts. Always ask: "Can both happen at once?" If yes, subtract P(A and B).</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="prob" data-keywords="independent mutually exclusive difference tell apart formula apply contingency table events">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I tell whether two events are independent or mutually exclusive — aren't they the same thing?<div class="tag-row"><span class="tag s-tag">S8</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>They are <em>completely different concepts</em> that happen to sound similar.</p>
+          <p><strong>Mutually exclusive (disjoint):</strong> The two events <em>cannot happen at the same time</em>. P(A and B) = 0. Knowing A happened tells you B definitely did NOT happen. Example: a coin flip landing heads AND tails simultaneously — impossible.</p>
+          <p><strong>Independent:</strong> Whether one event happens has <em>no effect</em> on the probability of the other. P(A|B) = P(A). Knowing B gives you no new information about A. Example: flipping a coin twice — the first flip doesn't affect the second.</p>
+        </div>
+        <table class="decision-table">
+          <caption>Side-by-side: Mutually Exclusive vs Independent</caption>
+          <thead><tr><th>Feature</th><th>Mutually Exclusive</th><th>Independent</th></tr></thead>
+          <tbody>
+            <tr><td>Both happen at once?</td><td>Impossible (P(A∩B) = 0)</td><td>Possible (P(A∩B) = P(A)·P(B))</td></tr>
+            <tr><td>Does one affect the other?</td><td>Yes — if A happens, B can't</td><td>No — neither affects the other</td></tr>
+            <tr><td>Check using</td><td>P(A and B) = 0?</td><td>P(A|B) = P(A)? (or P(A)·P(B) = P(A∩B)?)</td></tr>
+            <tr><td>Example</td><td>Rolling a 2 and rolling a 5 on one die</td><td>Rolling a die, then flipping a coin</td></tr>
+          </tbody>
+        </table>
+        <div class="rule-box"><b>Critical insight:</b> If two events are mutually exclusive AND both have nonzero probability, they CANNOT be independent. Knowing A happened makes P(B) = 0 — that's the opposite of independence.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="prob" data-keywords="conditional probability P(A|B) numerator denominator which goes where formula given table">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I set up conditional probability P(A|B) — and which value goes in the numerator vs. denominator?<div class="tag-row"><span class="tag s-tag">S8</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>The formula: <span class="math">P(A | B) = P(A and B) / P(B)</span></p>
+          <p><strong>Denominator:</strong> always the "given" condition — the event after the vertical bar "|". This is B. It becomes your new restricted sample space. In a contingency table: use the row total or column total for B.</p>
+          <p><strong>Numerator:</strong> the joint event — both A AND B occurring simultaneously. In a contingency table: find the cell where A and B intersect.</p>
+          <p>Reading "P(A|B)": "Given that B happened, what is the probability that A also happened?" You're narrowing your universe down to only the cases where B occurred, then asking how many of those also have A.</p>
+        </div>
+        <div class="tip-box"><b>🧠 Contingency table shortcut:</b> "Given" tells you which row/column to zoom into. Once you're inside that row or column, the conditional probability = (cell count) ÷ (that row/column total). You never go back to the grand total.</div>
+        <div class="mistake-box"><b>⚠️ Common mistake:</b> Dividing by the grand total instead of the "given" row/column total. P(A|B) restricts you to B's universe — its denominator is P(B) or the row/column total for B, not the full table total.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="prob" data-keywords="5 percent condition sampling without replacement independence treat as independent why">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">Why can we treat sampling without replacement as independent if the sample is less than 5% of the population?<div class="tag-row"><span class="tag s-tag">S8</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>When you sample without replacement, each draw technically changes the remaining pool — so the trials aren't perfectly independent. However, if your sample is tiny relative to the population, removing one person barely changes the probabilities for the next draw.</p>
+          <p>Example: A town has 100,000 people. You remove 50 for your sample. The probability of any characteristic changes by at most 50/100,000 = 0.05% — essentially negligible. The trials behave as if independent.</p>
+          <p>The <strong>5% condition</strong> (n/N &lt; 0.05) formalizes this: as long as your sample is less than 5% of the population, the dependence is small enough to ignore and the binomial/independence-based formulas remain valid.</p>
+        </div>
+        <div class="tip-box"><b>🧠 Analogy:</b> Taking a cup of water from the ocean doesn't meaningfully change the ocean's salinity. Taking a bucket from a bathtub does. The 5% rule asks: are you drawing from an "ocean" (huge population) or a "bathtub" (small population)?</div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ S9/S10 ═══════════════════════════════ -->
+<section class="section-group" data-cat="dist">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f5f3;">📦</div>
+    <h2 class="section-title">Expected Value &amp; Binomial Distribution</h2>
+    <span class="section-count">S9 · S10 · 8 questions</span>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="expected value meaning interpretation average outcome typical never actually occurs non-integer long run">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">What does expected value actually mean — and can it be a value that never actually occurs?<div class="tag-row"><span class="tag s-tag">S9</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Expected value (EV) is the <strong>long-run average outcome</strong> over many, many repetitions of the same random experiment. It is a weighted average of all possible outcomes, where each outcome is weighted by its probability.</p>
+          <p><strong>Yes, EV can be a value that never actually occurs.</strong> The classic example: "expected number of children in a family" might be 2.3 — no family has 2.3 children, but if you average across thousands of families, you approach 2.3. The EV is a theoretical center of the distribution, not a prediction for any single trial.</p>
+          <p>Interpretation: "In the long run, if this experiment were repeated many times, the average outcome would be [EV]."</p>
+        </div>
+        <div class="tip-box"><b>🧠 Raffle example:</b> If EV = −$2.50 for a raffle ticket buyer, it means on average, each ticket buyer loses $2.50 per ticket over many plays. No individual play results in losing exactly $2.50 — you either win a prize or get nothing. But the long-run average loss per ticket is $2.50.</div>
+        <div class="mistake-box"><b>⚠️ Common mistake:</b> Interpreting EV as "the most likely outcome." It's not the mode — it's the balance point of the distribution. A coin flip has EV = 0.5 heads, but you can only get 0 or 1 on any single flip.</div>
+        <a class="try-app-btn" href="https://expectedvalueexplorer.netlify.app/" target="_blank" rel="noopener">Try the Expected Value Explorer — watch the long-run average settle in real time</a>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="missing probability distribution table sum to 1 find unknown P complete valid">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">There's a missing probability in my distribution table — how do I find it?<div class="tag-row"><span class="tag s-tag">S9</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>All probabilities in a valid discrete distribution must sum to exactly 1.0. This gives you a simple equation to solve for any missing value:</p>
+          <p style="background:var(--parchment);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:0.7rem 0.9rem;font-family:'Playfair Display',serif;font-style:italic;text-align:center;">Missing P = 1 − (sum of all other given probabilities)</p>
+          <p>Once you have the missing P, check: is 0 ≤ missing P ≤ 1? If not, there's an error in the given probabilities.</p>
+          <p>After completing the table, proceed to expected value: EV = Σ x · P(x) — multiply each outcome by its probability and sum all products.</p>
+        </div>
+        <div class="tip-box"><b>🧠 Always verify validity first:</b> (1) All P(x) values are between 0 and 1. (2) All P(x) values sum to exactly 1. If either condition fails, the table is not a valid probability distribution.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="expected value step by step calculation EV formula x times P x sum weighted average discrete probability">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">Can you walk me through the expected value calculation step by step?<div class="tag-row"><span class="tag s-tag">S9</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Formula: <span class="math">EV = Σ x · P(x)</span></p>
+          <p><strong>Step 1:</strong> Write out every possible outcome value (x) and its probability P(x) in a table.</p>
+          <p><strong>Step 2:</strong> For each row, multiply x × P(x). Add a new column for these products.</p>
+          <p><strong>Step 3:</strong> Sum all the x · P(x) products. That sum is the expected value.</p>
+          <p><strong>Step 4:</strong> Write the interpretation: "In the long run, the average [outcome variable] per [trial] is [EV] [units]."</p>
+        </div>
+        <div class="info-box"><b>Raffle example:</b> You pay $5 for a ticket. Prize: $100 (probability 0.02), $0 (probability 0.98). Write outcomes from the buyer's perspective as net gain/loss: x = $95 (win $100, paid $5) with P = 0.02; x = −$5 (lose entry fee) with P = 0.98. EV = (95)(0.02) + (−5)(0.98) = 1.90 − 4.90 = −$3.00. On average, each ticket buyer loses $3.00.</div>
+        <div class="tip-box"><b>🧠 Buyer vs. seller:</b> Write outcomes from one consistent perspective (usually the buyer). If EV is negative for the buyer → buyer loses in the long run → seller profits. Most real-world games and raffles have negative EV for players by design.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="standard deviation probability distribution interpret meaning spread outcomes variable consistent unpredictable">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I interpret the standard deviation of a probability distribution — what is it actually telling me?<div class="tag-row"><span class="tag s-tag">S9</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>The standard deviation (σ) of a probability distribution measures how spread out the outcomes are around the expected value — how much you should expect a typical outcome to <em>deviate</em> from the expected value.</p>
+          <p><strong>Large σ:</strong> outcomes vary widely; individual results are unpredictable and often far from the EV. High variability — high risk.</p>
+          <p><strong>Small σ:</strong> outcomes cluster tightly near the EV; individual results are predictable and consistent. Low variability — low risk.</p>
+          <p>Template: "The standard deviation of [σ units] means that on any given [trial], the [outcome] typically varies from the expected value of [EV] by about [σ] [units]."</p>
+        </div>
+        <div class="tip-box"><b>🧠 Real-world connection:</b> Insurance companies care deeply about the standard deviation of payouts — they want the variance in claims to be predictable. A game with high EV and low σ is more reliably profitable than one with the same EV and high σ. The σ measures risk; the EV measures the long-run reward.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="BINS binomial conditions check binary independent n fixed same p verify properties identify">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I verify that a scenario satisfies the BINS conditions for a binomial distribution?<div class="tag-row"><span class="tag s-tag">S10</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Write one sentence for each condition — this is what full credit requires:</p>
+          <p><strong>B — Binary:</strong> Each trial results in exactly one of two outcomes: success or failure (yes/no, heads/tails, defective/not defective). <em>"Each [trial] can result in either [success] or [not success]."</em></p>
+          <p><strong>I — Independent:</strong> The outcome of one trial does not affect any other. <em>"Whether [one trial] succeeds does not change the probability of [another trial] succeeding"</em> (or: the 5% condition is met).</p>
+          <p><strong>N — Number fixed:</strong> The total number of trials (n) is set in advance. <em>"There are exactly n = [___] trials."</em></p>
+          <p><strong>S — Same probability:</strong> The probability of success (p) is identical for every trial. <em>"The probability of [success] is p = [___] for each trial."</em></p>
+        </div>
+        <div class="tip-box"><b>🧠 Exam tip:</b> Don't just list the BINS acronym — write a sentence for EACH condition in the context of the actual problem. "B: Binary. ✓" earns no credit. "B: Each free throw results in either a make (success) or a miss (failure)." earns full credit.</div>
+        <div class="mistake-box"><b>⚠️ Common error:</b> Confusing "binary outcome" with "two groups." Binary means each individual trial has exactly two possible outcomes — it doesn't mean the whole experiment has two groups. A student either passes or fails each question → binary. The class has 30 students → that's n, not binary vs. not binary.</div>
+        <a class="try-app-btn" href="https://binomialexplorer.netlify.app/" target="_blank" rel="noopener">Try the Binomial Explorer — adjust n and p and see the distribution shift</a>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="binomial normal distribution when use which tell difference discrete continuous counting probability model">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I decide whether a problem calls for binomial or normal distribution?<div class="tag-row"><span class="tag s-tag">S10</span><span class="tag s-tag">S11</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <table class="decision-table">
+          <caption>Binomial vs Normal — choosing the right model</caption>
+          <thead><tr><th>Feature</th><th>Binomial</th><th>Normal</th></tr></thead>
+          <tbody>
+            <tr><td>Variable type</td><td>Discrete counts (0, 1, 2, … n)</td><td>Continuous measurements (any value on a range)</td></tr>
+            <tr><td>Question asks for</td><td>"Exactly k successes," "at most k," "at least k"</td><td>"P(X &lt; value)" or "P(X between a and b)"</td></tr>
+            <tr><td>Key structure</td><td>Fixed n trials, counting successes</td><td>Continuous variable with known μ and σ</td></tr>
+            <tr><td>Signal words</td><td>"n trials," "k successes," "BINS conditions met"</td><td>"normally distributed," "heights," "weights," "scores"</td></tr>
+            <tr><td>Art of Stat tool</td><td>Binomial Distribution → Find Probabilities</td><td>Normal Distribution → Find Probability</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box"><b>Gray area — Normal approximation to Binomial:</b> When n is large (np ≥ 10 and n(1−p) ≥ 10), the binomial distribution is approximately bell-shaped and you can use the normal as a shortcut. This is why the CLT connects to binomial — for large samples, both converge to normal.</div>
+        <div class="tip-box"><b>🧠 Quick test:</b> "Am I counting discrete events (number of successes in n trials)?" → Binomial. "Am I measuring something continuous (time, weight, score) and finding the probability of a range?" → Normal.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="at most at least no more than fewer than more than exactly inequality symbols less than greater than phrase translate">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">"At most," "at least," "no more than," "fewer than" — how do I translate these phrases into inequalities?<div class="tag-row"><span class="tag s-tag">S10</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <table class="decision-table">
+          <caption>Probability phrase → inequality → Art of Stat setting</caption>
+          <thead><tr><th>Phrase</th><th>Symbol</th><th>Includes k?</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>"At least k" / "k or more"</td><td>X ≥ k</td><td>Yes</td><td>P(X ≥ 5): 5, 6, 7, 8…</td></tr>
+            <tr><td>"More than k" / "greater than k"</td><td>X &gt; k</td><td>No</td><td>P(X &gt; 5): 6, 7, 8…</td></tr>
+            <tr><td>"At most k" / "no more than k"</td><td>X ≤ k</td><td>Yes</td><td>P(X ≤ 5): 0, 1, 2, 3, 4, 5</td></tr>
+            <tr><td>"Fewer than k" / "less than k"</td><td>X &lt; k</td><td>No</td><td>P(X &lt; 5): 0, 1, 2, 3, 4</td></tr>
+            <tr><td>"Exactly k"</td><td>X = k</td><td>Yes (only k)</td><td>P(X = 5): only 5</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box"><b>🧠 The "at" words include the boundary:</b> "At least 5" includes 5. "At most 5" includes 5. The words "more than" and "fewer than" are strict and exclude the boundary number.</div>
+        <div class="mistake-box"><b>⚠️ Most common error:</b> Treating "more than k" as the same as "at least k." They differ by exactly one value. P(X &gt; 5) does NOT include 5; P(X ≥ 5) DOES include 5. On binomial problems, this changes your answer.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="dist" data-keywords="unusual values binomial rounding fence decimal cant be decimal round direction basketball problem lower upper">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">For binomial unusual values, how do I round when the fence is a decimal — and which direction?<div class="tag-row"><span class="tag s-tag">S10</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Binomial counts must be whole numbers — you can't make 9.9 shots. When your fence is a decimal, you must convert it to a whole number, but the direction depends on which side you're on:</p>
+          <p><strong>Lower fence = 9.9:</strong> Values below 9.9 are unusual. The lowest whole number you can be and still be unusual is 9 (since 10 ≥ 9.9, so 10 is inside the fence). → <em>"9 or fewer is unusually low."</em></p>
+          <p><strong>Upper fence = 18.1:</strong> Values above 18.1 are unusual. The lowest whole number that is above 18.1 is 19 (since 18 ≤ 18.1, so 18 is inside the fence). → <em>"19 or more is unusually high."</em></p>
+        </div>
+        <div class="rule-box"><b>Direction rule:</b> Lower fence — round DOWN to find the highest "unusual" value (values BELOW the fence). Upper fence — round UP to find the lowest "unusual" value (values ABOVE the fence). Never use the rounded fence value itself — check which side of the decimal it falls on.</div>
+        <div class="mistake-box"><b>⚠️ The common error:</b> Rounding 9.9 up to 10 and concluding "10 or fewer is unusual." But 10 is NOT below 9.9 — it's above it. 10 falls inside the normal range. Only 9 and below are unusual. When in doubt, ask: "Is this value actually below (or above) the fence?" before concluding unusual.</div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ S11 ═══════════════════════════════ -->
+<section class="section-group" data-cat="normal">
+  <div class="section-header">
+    <div class="section-icon" style="background:#EEEDFE;">🔔</div>
+    <h2 class="section-title">Normal Distribution</h2>
+    <span class="section-count">S11 · 4 questions</span>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item faq-card" data-cat="normal" data-keywords="shade normal curve left right tail between two values unshaded part complement what does it mean">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I know which tail to shade — and what does the unshaded part of the curve represent?<div class="tag-row"><span class="tag s-tag">S11</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <table class="decision-table">
+          <caption>Normal curve shading guide</caption>
+          <thead><tr><th>Question type</th><th>Region to shade</th><th>Art of Stat setting</th></tr></thead>
+          <tbody>
+            <tr><td>P(X &lt; value) — "less than"</td><td>Left tail, up to the value</td><td>Left tail inequality (&lt;)</td></tr>
+            <tr><td>P(X &gt; value) — "more than"</td><td>Right tail, from the value outward</td><td>Right tail inequality (&gt;)</td></tr>
+            <tr><td>P(a &lt; X &lt; b) — "between"</td><td>Middle region between a and b</td><td>Between — enter both boundaries</td></tr>
+            <tr><td>P(X &lt; a or X &gt; b) — "outside"</td><td>Both tails (complement of between)</td><td>Outside (two-tail) setting</td></tr>
+          </tbody>
+        </table>
+        <div class="answer-text" style="margin-top:0.75rem;">
+          <p>The <strong>unshaded region</strong> represents the complement — the probability that the outcome falls outside the shaded area. Shaded + unshaded always = 1.0 (100% of the probability).</p>
+        </div>
+        <div class="tip-box"><b>🧠 In Art of Stat:</b> You don't need to manually shade — pick the correct inequality symbol from the dropdown. "P(X &lt; value)" → choose "&lt;". "P(X &gt; value)" → choose "&gt;". The tool shades automatically and gives you the exact probability.</div>
+        <a class="try-app-btn" href="https://zscoreexplorer.netlify.app/" target="_blank" rel="noopener">Try the Z-Score Explorer — practice reading left, right, and middle regions</a>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="normal" data-keywords="subtract from 1 when use directly z table greater than right tail between normal distribution probability">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">When do I subtract my normal distribution probability from 1, and when do I use it directly?<div class="tag-row"><span class="tag s-tag">S11</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p><strong>Use the probability directly</strong> when the question asks for a left-tail ("less than") area — Art of Stat and z-tables naturally give you left-tail probabilities.</p>
+          <p><strong>Subtract from 1</strong> when the question asks for a right-tail ("greater than," "more than," "above") area: P(X &gt; value) = 1 − P(X &lt; value).</p>
+          <p><strong>For "between" two values:</strong> P(a &lt; X &lt; b) = P(X &lt; b) − P(X &lt; a). Compute the left-tail probability for the upper bound, then subtract the left-tail probability for the lower bound.</p>
+        </div>
+        <div class="rule-box"><b>Quick check:</b> Is the shaded area to the LEFT of your value? → Use directly. To the RIGHT? → Subtract from 1. In the MIDDLE? → Subtract the smaller left-area from the larger left-area.</div>
+        <div class="tip-box"><b>🧠 Art of Stat does this automatically</b> — just pick the right inequality symbol. The subtraction is built into the tool. But you need to understand the logic so you can verify the answer makes sense. A probability of 0.97 for a "greater than" question on a value far above the mean should raise a flag — that should be a small number, not 0.97.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="normal" data-keywords="empirical rule 68 95 99.7 versus art of stat when use which tool separately choose correct">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">When should I use the Empirical Rule versus Art of Stat — and how do I choose the right tool?<div class="tag-row"><span class="tag s-tag">S11</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p><strong>Use the Empirical Rule (68–95–99.7)</strong> only when the problem involves values that are <em>exactly 1, 2, or 3 standard deviations</em> from the mean — and even then, only as a quick approximation.</p>
+          <p>Empirical Rule probabilities: within 1σ → ≈68%; within 2σ → ≈95%; within 3σ → ≈99.7%.</p>
+          <p><strong>Use Art of Stat</strong> for everything else — any decimal z-score, any specific cutoff value, any exact calculation. Art of Stat gives you precise probabilities without rounding.</p>
+          <p>Signal words for Empirical Rule: "within 1 standard deviation," "between μ−2σ and μ+2σ," "within three standard deviations." If the problem specifies a specific numeric value that doesn't land exactly on 1, 2, or 3 SDs from the mean → use Art of Stat.</p>
+        </div>
+        <div class="tip-box"><b>🧠 When in doubt, use Art of Stat.</b> The Empirical Rule is a useful approximation for quick mental math — it is not a substitute for exact calculation on an exam problem that gives you specific values. Always prefer the precise tool unless the problem explicitly invites an approximation.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="normal" data-keywords="z score to probability workflow normal distribution steps Art of Stat enter mean standard deviation find area">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">What is the full workflow from a normal distribution problem to a final probability in Art of Stat?<div class="tag-row"><span class="tag s-tag">S11</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p><strong>Step 1 — Identify the parameters:</strong> What is μ (mean) and σ (standard deviation) for this distribution? These come directly from the problem.</p>
+          <p><strong>Step 2 — Identify what you're finding:</strong> Is the problem asking "P(X &lt; ___)", "P(X &gt; ___)", or "P(a &lt; X &lt; b)"? Read carefully.</p>
+          <p><strong>Step 3 — Open Art of Stat:</strong> Go to Distributions → Normal Distribution → "Find Probability" tab. Enter your μ and σ.</p>
+          <p><strong>Step 4 — Enter the boundary value:</strong> Type the specific x-value from the problem. Select the correct inequality direction. Click calculate.</p>
+          <p><strong>Step 5 — Interpret in context:</strong> "The probability that [variable in context] is [greater/less] than [value] is approximately [result]."</p>
+        </div>
+        <div class="mistake-box"><b>⚠️ Most common Art of Stat error:</b> Entering the z-score into the "x" field instead of the original data value. Art of Stat handles the z-score conversion internally when you enter μ and σ. Only enter raw x-values, not z-scores, in the normal distribution calculator — unless the problem gives you a standardized distribution (μ=0, σ=1).</div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ S12 ═══════════════════════════════ -->
+<section class="section-group" data-cat="clt">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdf0ec;">📡</div>
+    <h2 class="section-title">Central Limit Theorem</h2>
+    <span class="section-count">S12 · 9 questions</span>
+  </div>
+  <div class="faq-list">
+
+    <!-- THE KEY QUESTION — most prominent -->
+    <div class="faq-item" data-cat="clt" data-keywords="single individual one value versus sample mean sample of n key question trigger word recognize CLT apply sigma divide sqrt n">
+      <div style="background:var(--white);border:2px solid var(--navy);border-radius:var(--radius);padding:1.1rem 1.3rem;margin-bottom:0;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">⭐ The Most Important Question in S12 — Memorize This</p>
+        <p style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:0.75rem;">How do I tell whether a problem is about ONE individual or a SAMPLE of n people — and why does that change everything?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0.75rem;">
+          <div style="background:var(--teal-pale);border:1.5px solid #b3ddd7;border-radius:var(--radius-sm);padding:0.8rem;">
+            <p style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem;">Individual observation</p>
+            <p style="font-size:13px;color:#0b3d37;line-height:1.5;"><strong>Use σ (population SD)</strong><br>Signal words: "a randomly selected person," "one student," "a single value," "an individual"<br>Formula: z = (x − μ) / σ</p>
+          </div>
+          <div style="background:var(--coral-pale);border:1.5px solid #e8b09c;border-radius:var(--radius-sm);padding:0.8rem;">
+            <p style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--coral);margin-bottom:0.4rem;">Sample of n values</p>
+            <p style="font-size:13px;color:#4a1f13;line-height:1.5;"><strong>Use σ/√n (standard error)</strong><br>Signal words: "a sample of n," "the average of n," "the mean of a group of n"<br>Formula: z = (x̄ − μ) / (σ/√n)</p>
+          </div>
+        </div>
+        <div style="background:var(--gold-pale);border-left:3px solid var(--gold);padding:0.7rem 0.9rem;font-size:13.5px;color:#3d2e10;line-height:1.6;">
+          <b>🧠 The single fastest trigger:</b> Does the problem mention a sample of n people (or n observations) and ask about their <em>average</em> or <em>mean</em>? → Use σ/√n. Is it asking about the probability for just one randomly selected person? → Use σ as-is.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="why divide sqrt n standard error formula mathematical why not n larger sample more accurate narrower">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">Why do we divide by <span class="math">√n</span> to get the standard error — why not just <span class="math">n</span>?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>It comes from the mathematics of variance. If you sum n independent values, the variance of the sum grows as n (not n²). When you take the average (divide the sum by n), the variance becomes σ²/n — so the standard deviation of the average is σ/√n.</p>
+          <p><strong>The intuitive explanation:</strong> Larger samples produce more accurate estimates — your sample mean is less likely to be far from the true population mean. This is why sampling distributions get "skinnier" as n grows. But the improvement follows the square root — doubling accuracy requires <em>quadrupling</em> n, not just doubling it.</p>
+          <p>Example: σ = 10. With n=4: SE = 10/√4 = 5. With n=100: SE = 10/√100 = 1. With n=400: SE = 10/√400 = 0.5. Each time you quadruple n, the SE halves.</p>
+        </div>
+        <div class="tip-box"><b>🧠 Key insight:</b> The distribution of individual values has spread σ. The distribution of sample means has spread σ/√n — always narrower than individual values, and gets narrower as n grows. This is exactly what the CLT guarantees: large samples → sample means cluster tightly around the true population mean.</div>
+        <a class="try-app-btn" href="https://exploringconfidenceintervals.netlify.app/" target="_blank" rel="noopener">Try the Sampling Distribution Explorer — watch the distribution narrow as n increases</a>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="CLT means versus proportions formulas different mu x bar sigma over sqrt n mu p hat sqrt p 1-p n which">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">What's different between CLT for means vs. CLT for proportions — especially which formula to use?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <table class="decision-table">
+          <caption>CLT for means vs CLT for proportions — side by side</caption>
+          <thead><tr><th>Feature</th><th>CLT for Means</th><th>CLT for Proportions</th></tr></thead>
+          <tbody>
+            <tr><td>Variable type</td><td>Quantitative (height, GPA, time)</td><td>Categorical (rate, %, yes/no proportion)</td></tr>
+            <tr><td>What you're averaging</td><td>Sample mean x̄ of n measurements</td><td>Sample proportion p̂ from n binary trials</td></tr>
+            <tr><td>Center of sampling dist.</td><td>μ<sub>x̄</sub> = μ (already given!)</td><td>μ<sub>p̂</sub> = p (already given!)</td></tr>
+            <tr><td>Spread (standard error)</td><td>σ<sub>x̄</sub> = σ / √n</td><td>σ<sub>p̂</sub> = √(p(1−p)/n)</td></tr>
+            <tr><td>Conditions for CLT</td><td>n ≥ 30 (or population is normal)</td><td>np ≥ 10 AND n(1−p) ≥ 10</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box"><b>🧠 The mean is already given:</b> For both types, the center of the sampling distribution equals the population parameter — μ for means, p for proportions. You never need to calculate the center. You only need to calculate the standard error (spread), then use the normal distribution for probabilities.</div>
+        <div class="mistake-box"><b>⚠️ Riley's confusion resolved:</b> When a problem says "the true proportion is p = 0.55 and n = 60," the mean of the sampling distribution is μ<sub>p̂</sub> = 0.55 (not 0.55 × 60 = 33). That product (33) would be the expected number of successes in a binomial context — a different question. For CLT for proportions, keep everything in proportion units (0 to 1).</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="n 30 rule when CLT applies exceptions population already normal sample size conditions check">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">Does the CLT always require <span class="math">n ≥ 30</span> — or are there exceptions?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>The n ≥ 30 rule is a guideline for populations that are <em>not</em> normally distributed. Here is the complete picture:</p>
+          <p><strong>If the underlying population is already normally distributed:</strong> The sampling distribution of x̄ is normal for <em>any</em> sample size — even n = 2 or n = 5. You don't need n ≥ 30 because the normal shape is inherited directly.</p>
+          <p><strong>If the population is skewed or non-normal:</strong> The n ≥ 30 guideline applies. For larger n, the distribution of sample means becomes approximately normal regardless of the population shape (this is the core CLT guarantee).</p>
+          <p><strong>For proportions:</strong> The condition is np ≥ 10 AND n(1−p) ≥ 10 — not n ≥ 30. With very small or very large p, you need a larger n to satisfy this.</p>
+        </div>
+        <div class="rule-box"><b>Complete conditions checklist for CLT:</b><br>
+        Means: (a) Population is normal → any n works. OR (b) n ≥ 30 → works regardless of population shape.<br>
+        Proportions: np ≥ 10 AND n(1−p) ≥ 10 (i.e., you expect at least 10 successes AND 10 failures).</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="within 10 percent true proportion how set up bounds p hat bounds probability translate wording">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">"The sample proportion is within 10% of the true proportion" — how do I translate that into probability bounds?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>"Within 10% of the true proportion p" means the sample proportion p̂ falls in the range: <strong>p − 0.10 to p + 0.10</strong>. This is a "between" probability.</p>
+          <p><strong>Setup:</strong> P(p − 0.10 &lt; p̂ &lt; p + 0.10)</p>
+          <p><strong>Step 1:</strong> Plug in the actual value of p. Example: p = 0.55 → bounds are 0.45 and 0.65.</p>
+          <p><strong>Step 2:</strong> Calculate the standard error: σ<sub>p̂</sub> = √(p(1−p)/n).</p>
+          <p><strong>Step 3:</strong> In Art of Stat, use Normal Distribution with mean = p and SD = σ<sub>p̂</sub>. Enter the "between" bounds (0.45 and 0.65 in the example).</p>
+        </div>
+        <div class="tip-box"><b>🧠 "More than 10% away"</b> is the complement: P(p̂ &lt; p − 0.10 or p̂ &gt; p + 0.10) = 1 − P(within 10%). Calculate the within-10% probability first, then subtract from 1.</div>
+        <div class="mistake-box"><b>⚠️ Common error:</b> Interpreting "within 10%" as "within 10 percentage points on one side only." It is symmetric — 10% below AND 10% above the true p. Both bounds are required, and the probability covers the middle region of the sampling distribution.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="CLT normal binomial which to use exam tell quickly word problem clue trigger decide distribution">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">On an exam, how do I quickly decide: CLT, normal distribution, or binomial — without overthinking it?<div class="tag-row"><span class="tag s-tag">S10</span><span class="tag s-tag">S11</span><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Ask these three questions in order — stop when you have a match:</p>
+          <p><strong>Q1: Am I counting discrete successes in a fixed number of trials?</strong> (BINS conditions apply?) → <em>Binomial.</em></p>
+          <p><strong>Q2: Am I finding the probability for one individual value from a continuous distribution?</strong> ("A randomly selected person…") → <em>Normal Distribution</em> with the original μ and σ.</p>
+          <p><strong>Q3: Am I finding the probability for a sample mean or sample proportion from a group of n?</strong> ("A sample of n…," "the average of n…") → <em>CLT</em> — use σ/√n (means) or √(p(1−p)/n) (proportions) as your standard deviation.</p>
+        </div>
+        <div class="rule-box"><b>The one-sentence rule:</b> "Count of successes → Binomial. One person → Normal with σ. Group average/proportion → CLT with σ/√n."</div>
+        <div class="tip-box"><b>🧠 Use the decision tree at the top of this page</b> — it walks you through exactly these three questions interactively. When you land on a result, it shows you the formulas and opens Art of Stat.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="standard error relate standard deviation entire proportion CLT organized multiple steps formulas disorganized">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How does standard error relate to the population standard deviation — and how do I stay organized through all the CLT steps?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p><strong>Relationship:</strong> The standard error is the standard deviation of the <em>sampling distribution</em> — it describes how much sample means (or proportions) vary from sample to sample. It is always smaller than the population SD by a factor of √n.</p>
+          <p>Population SD (σ) = how much individual values vary from the mean. Standard Error (σ/√n) = how much sample means vary from sample to sample. As n grows, SE shrinks → larger samples give more consistent estimates.</p>
+          <p><strong>To stay organized — use a scratch formula template every time:</strong></p>
+          <p>① Identify: "Individual or sample?" ② Write μ (same as population mean or p). ③ Calculate SE = σ/√n or √(p(1−p)/n). ④ Enter μ and SE into Art of Stat as the new parameters. ⑤ Enter your boundary value and inequality. ⑥ Write context sentence.</p>
+        </div>
+        <div class="tip-box"><b>🧠 Write the sampling distribution parameters before touching Art of Stat:</b> μ<sub>x̄</sub> = ___ and σ<sub>x̄</sub> = σ/√n = ___/√___ = ___. This two-second step prevents you from accidentally using σ instead of σ/√n — the most common CLT mistake on exams.</div>
+        <div class="mistake-box"><b>⚠️ Most frequent CLT error on exams:</b> Entering the population σ directly into Art of Stat when the problem is about a sample mean. You must compute σ/√n FIRST, then enter that result as the standard deviation in Art of Stat's normal distribution calculator.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="ignore original distribution CLT normal regardless sample mean sampling distribution shape what happens to original">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">If the CLT makes the sampling distribution normal, does that mean I can ignore the original data's distribution entirely?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>Partially — but not entirely. Here's the precise distinction:</p>
+          <p><strong>What the CLT guarantees:</strong> The distribution of sample means becomes approximately normal as n grows, regardless of the original population's shape. For questions about sample means, you can use normal distribution methods even if the original data is skewed.</p>
+          <p><strong>What the CLT does NOT change:</strong> The original population mean (μ) and standard deviation (σ) — these are still what you use as inputs for the CLT formulas. The CLT changes the <em>shape</em> of the sampling distribution, not the parameters it's centered on.</p>
+          <p>So: when working with a sample mean, yes, treat the sampling distribution as normal. But you still need μ and σ from the original population — the CLT doesn't make them disappear, it just lets you use normal probability tools on top of them.</p>
+        </div>
+        <div class="info-box"><b>Key analogy:</b> The original distribution is like the personality of each individual coin. The CLT says: when you average 100 coin flips, the result looks bell-shaped regardless of the coin's individual behavior. You still need to know the coin's average (μ) and variability (σ) — those feed the CLT. The CLT just guarantees the shape of what comes out.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item faq-card" data-cat="clt" data-keywords="Art of Stat CLT sampling distribution proportions means navigate enter which settings standard error tool">
+      <button class="faq-trigger" onclick="toggleFAQ(this)" aria-expanded="false">
+        <span class="q-icon">Q</span>
+        <span class="faq-q">How do I navigate Art of Stat for CLT problems — what exactly do I enter?<div class="tag-row"><span class="tag s-tag">S12</span></div></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">
+        <p class="answer-head">The answer</p>
+        <div class="answer-text">
+          <p>For CLT problems, use the <strong>Normal Distribution</strong> tool — not a separate CLT calculator. The key is entering the sampling distribution parameters (not the raw population parameters):</p>
+          <p><strong>CLT for Means:</strong> Mean = μ (population mean), SD = σ/√n (standard error). Enter x̄ (the boundary sample mean) as your value.</p>
+          <p><strong>CLT for Proportions:</strong> Mean = p (true proportion), SD = √(p(1−p)/n) (standard error). Enter p̂ (the boundary sample proportion) as your value.</p>
+          <p>Path: Distributions → Normal Distribution → "Find Probability" tab → Enter mean and SD as above → Enter your boundary value and inequality → Calculate.</p>
+        </div>
+        <div class="rule-box"><b>The single most important entry:</b> In the "SD" field, do NOT enter σ or σ² directly. Enter σ/√n (for means) or √(p(1-p)/n) (for proportions) — the computed standard error. This is what distinguishes a CLT problem from a plain normal distribution problem in Art of Stat.</div>
+        <div class="tip-box"><b>🧠 Double-check:</b> Before clicking calculate, confirm your SD entry is smaller than the original σ. If σ = 15 and n = 36, your SE = 15/6 = 2.5. If your SD field shows 15, you forgot to divide by √n.</div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── ART OF STAT ─── -->
+<section class="artofstat-section">
+  <div class="artofstat-header">
+    <h2>🛠 Art of Stat — Unit 2 Navigation Guide</h2>
+    <p>Menu paths and video walkthroughs for every Unit 2 procedure</p>
+  </div>
+  <p class="artofstat-intro">Go to <a href="https://artofstat.com/web-apps" target="_blank" rel="noopener">artofstat.com/web-apps</a> and navigate to the app listed below. Each card links to a video walkthrough.</p>
+  <div class="artofstat-grid">
+
+    <div class="aos-card">
+      <span class="aos-test-badge prob">Expected Value</span>
+      <div class="aos-name">Discrete Distribution / Expected Value</div>
+      <div class="aos-where">Menu: <strong>Sampling Distributions → Sampling Distribution of Sample Mean (Discrete Population)</strong></div>
+      <div class="aos-note">⚠️ Choose "Build Custom Distribution" → enter x and P(x)</div>
+      <a class="aos-video-btn" href="https://youtu.be/HIccJ9W_Clk" target="_blank" rel="noopener">
+        <svg class="aos-video-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch video
+      </a>
+    </div>
+
+    <div class="aos-card">
+      <span class="aos-test-badge binom">Binomial</span>
+      <div class="aos-name">Binomial Distribution</div>
+      <div class="aos-where">Menu: <strong>Distributions → Binomial Distribution</strong></div>
+      <div class="aos-note">⚠️ "Find Probabilities" tab → enter n and p → select x and inequality</div>
+      <a class="aos-video-btn" href="https://youtu.be/2CYwiHrE4D0" target="_blank" rel="noopener">
+        <svg class="aos-video-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch video
+      </a>
+    </div>
+
+    <div class="aos-card">
+      <span class="aos-test-badge norm">Normal</span>
+      <div class="aos-name">Normal Distribution — Probability</div>
+      <div class="aos-where">Menu: <strong>Distributions → Normal Distribution → "Find Probability" tab</strong></div>
+      <div class="aos-note">⚠️ Enter μ and σ directly; for CLT use σ/√n as σ</div>
+      <a class="aos-video-btn" href="https://youtu.be/uxIg6_TSWCY" target="_blank" rel="noopener">
+        <svg class="aos-video-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch video
+      </a>
+    </div>
+
+    <div class="aos-card">
+      <span class="aos-test-badge norm">Normal</span>
+      <div class="aos-name">Normal Distribution — Percentile/Boundary</div>
+      <div class="aos-where">Menu: <strong>Distributions → Normal Distribution → "Find Percentile/Quartile" tab</strong></div>
+      <div class="aos-note">⚠️ Use when problem gives a probability and asks for the x-value (working backwards)</div>
+      <a class="aos-video-btn" href="https://youtu.be/uxIg6_TSWCY?t=125" target="_blank" rel="noopener">
+        <svg class="aos-video-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch video
+      </a>
+    </div>
+
+    <div class="aos-card">
+      <span class="aos-test-badge clt">CLT</span>
+      <div class="aos-name">CLT for Means &amp; Proportions</div>
+      <div class="aos-where">Menu: <strong>Distributions → Normal Distribution → "Find Probability" tab</strong></div>
+      <div class="aos-note">⚠️ Same tool as normal, but enter SE = σ/√n (means) or √(p(1−p)/n) (proportions) as σ</div>
+      <a class="aos-video-btn" href="https://artofstat.com/web-apps" target="_blank" rel="noopener">
+        <svg class="aos-video-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Open Art of Stat
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div id="noResults" role="alert" style="text-align:center;padding:3rem 1rem;display:none;">
+  <p style="font-size:2rem;margin-bottom:0.5rem;">🔍</p>
+  <p style="font-size:15px;color:var(--muted);">No questions matched <strong id="searchTerm" style="color:var(--navy);"></strong>.</p>
+  <p style="margin-top:0.4rem;font-size:14px;color:var(--muted);">Try a different keyword, or clear the search to browse all topics.</p>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>STAT C1000 · Santa Ana College · Unit 2 Student FAQ</strong></p>
+    <p style="margin-top:6px;">SAC Hope Academy · Dr. Romero · Questions collected from your classmates and organized with care.</p>
+    <p style="margin-top:6px;font-style:italic;">"Hope is not a passive wish — it is an active choice." — C.R. Snyder</p>
+  </div>
+</footer>
+
+<script>
+var treeHistory=[];var currentOpts=[];
+var tree={
+  start:{q:"What is the problem asking you to find the probability of?",ctx:"Focus on the structure of the random event — not the formula yet.",
+    opts:[
+      {label:"A count of successes in a fixed number of trials",sub:"e.g., 'How many out of 20 patients respond?' — counting discrete successes",next:"bins_check"},
+      {label:"A single measured value for one individual",sub:"e.g., 'A randomly selected adult weighs more than 180 lbs' — one person",next:"result_normal"},
+      {label:"A sample mean or proportion from a group of n",sub:"e.g., 'The average height of 50 students' or 'the proportion in a sample of 100'",next:"mean_or_prop"}
+    ]},
+  bins_check:{q:"Check BINS — does this scenario meet all four conditions?",ctx:"B: Binary outcome · I: Independent trials · N: Fixed n · S: Same p",
+    opts:[
+      {label:"Yes — all four BINS conditions are satisfied",sub:"Binary, Independent, fixed N, Same p for each trial",next:"result_binomial"},
+      {label:"No — at least one condition is not met",sub:"Outcomes aren't binary, p changes, or n isn't fixed",next:"result_discrete"}
+    ]},
+  mean_or_prop:{q:"Is the variable being averaged quantitative or categorical?",ctx:"Think about what was measured on each individual.",
+    opts:[
+      {label:"Quantitative — a measured number (height, score, time)",sub:"You're averaging n measurements → use CLT for Means",next:"result_clt_mean"},
+      {label:"Categorical — a proportion or rate (% voting yes, pass rate)",sub:"You're averaging n binary outcomes → use CLT for Proportions",next:"result_clt_prop"}
+    ]}
+};
+var results={
+  result_binomial:{name:"Binomial Distribution",sym:"B(n, p)  —  P(X = k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ",hyp:"Count successes in n fixed, independent, binary trials with constant p. In Art of Stat: Distributions → Binomial Distribution → Find Probabilities.",art:"https://artofstat.com/web-apps",vid:"https://youtu.be/2CYwiHrE4D0"},
+  result_discrete:{name:"Discrete Probability Distribution",sym:"EV = Σ x · P(x)  |  All P(x) must sum to 1",hyp:"List all outcomes and their probabilities. Verify validity (sum = 1, each P ≥ 0), then compute expected value and standard deviation.",art:"https://artofstat.com/web-apps",vid:"https://youtu.be/HIccJ9W_Clk"},
+  result_normal:{name:"Normal Distribution (Single Individual)",sym:"z = (x − μ) / σ  —  use σ directly (not σ/√n)",hyp:"One person, one observation. Enter the original μ and σ into Art of Stat: Distributions → Normal Distribution → Find Probability.",art:"https://artofstat.com/web-apps",vid:"https://youtu.be/uxIg6_TSWCY"},
+  result_clt_mean:{name:"CLT — Sampling Distribution of Means",sym:"μ_x̄ = μ  |  σ_x̄ = σ/√n  (Standard Error)",hyp:"Group of n quantitative values. Compute SE = σ/√n first, then use Normal Distribution in Art of Stat with mean = μ and SD = SE.",art:"https://artofstat.com/web-apps",vid:null},
+  result_clt_prop:{name:"CLT — Sampling Distribution of Proportions",sym:"μ_p̂ = p  |  σ_p̂ = √(p(1−p)/n)  (Standard Error)",hyp:"Group of n binary outcomes. Check np ≥ 10 and n(1−p) ≥ 10. Compute SE = √(p(1−p)/n), then use Normal Distribution with mean = p and SD = SE.",art:"https://artofstat.com/web-apps",vid:null}
+};
+function renderTree(nodeId){
+  document.getElementById('breadcrumb').innerHTML=treeHistory.map(function(h){return'<span class="crumb">'+h+'</span>';}).join('');
+  if(results[nodeId]){
+    var r=results[nodeId];
+    document.getElementById('treeContent').innerHTML=
+      '<div class="tree-result">'+
+        '<div class="result-label">✓ Your distribution model</div>'+
+        '<div class="result-name">'+r.name+'</div>'+
+        '<div class="result-symbol">'+r.sym+'</div>'+
+        '<div class="result-hyp">'+r.hyp+'</div>'+
+        '<div class="result-actions">'+
+          '<a class="result-btn primary" href="'+r.art+'" target="_blank" rel="noopener">Open Art of Stat ↗</a>'+
+          (r.vid?'<a class="result-btn secondary" href="'+r.vid+'" target="_blank" rel="noopener">▶ Watch video</a>':'')+
+          '<button class="result-btn secondary" onclick="startTree()">↺ Start over</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="tree-restart"><span class="tree-step-indicator">Reached in '+treeHistory.length+' step'+(treeHistory.length!==1?'s':'')+'</span></div>';
+    return;
+  }
+  var node=tree[nodeId];if(!node)return;
+  currentOpts=node.opts;
+  var optsHtml=node.opts.map(function(o,i){
+    return'<button class="tree-option" onclick="chooseOption('+i+')">'+
+      '<span class="tree-option-label">'+o.label+'</span>'+
+      '<span class="tree-option-sub">'+o.sub+'</span>'+
+    '</button>';
+  }).join('');
+  document.getElementById('treeContent').innerHTML=
+    '<div class="tree-question">'+node.q+'</div>'+
+    '<div class="tree-context">'+node.ctx+'</div>'+
+    '<div class="tree-options">'+optsHtml+'</div>'+
+    (treeHistory.length>0?'<div class="tree-restart"><button class="restart-btn" onclick="startTree()">↺ Start over</button><span class="tree-step-indicator">Step '+(treeHistory.length+1)+'</span></div>':'');
+}
+function chooseOption(i){var o=currentOpts[i];treeHistory.push(o.label.length>50?o.label.substring(0,47)+'…':o.label);renderTree(o.next);}
+function startTree(){treeHistory=[];currentOpts=[];renderTree('start');}
+startTree();
+
+function toggleFAQ(btn){
+  var card=btn.parentElement;var body=card.querySelector('.faq-body');var open=card.classList.contains('open');
+  btn.setAttribute('aria-expanded',open?'false':'true');
+  if(open){card.classList.remove('open');body.style.maxHeight='0';}
+  else{card.classList.add('open');body.style.maxHeight=(body.scrollHeight+300)+'px';}
+}
+
+var activeFilter='all';
+function filterCat(btn,cat){
+  activeFilter=cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');applyFilters();
+}
+document.getElementById('searchInput').addEventListener('input',applyFilters);
+function applyFilters(){
+  var term=document.getElementById('searchInput').value.toLowerCase().trim();var visible=0;
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var catMatch=(activeFilter==='all')||(item.getAttribute('data-cat')===activeFilter);
+    var kw=(item.getAttribute('data-keywords')||'')+' '+(item.textContent||'');
+    var searchMatch=!term||kw.toLowerCase().includes(term);
+    if(catMatch&&searchMatch){item.classList.remove('hidden');visible++;}
+    else{item.classList.add('hidden');var b=item.querySelector('.faq-body');if(b){item.classList.remove('open');b.style.maxHeight='0';}}
+  });
+  document.querySelectorAll('.section-group').forEach(function(sec){
+    var catMatch=(activeFilter==='all')||(sec.getAttribute('data-cat')===activeFilter);
+    var vis=sec.querySelectorAll('.faq-item:not(.hidden)').length;
+    sec.classList.toggle('hidden',!catMatch||vis===0);
+  });
+  var nr=document.getElementById('noResults');
+  if(visible===0){nr.style.display='block';document.getElementById('searchTerm').textContent='"'+term+'"';}
+  else{nr.style.display='none';}
+}
+</script>
+</body>
+</html>
